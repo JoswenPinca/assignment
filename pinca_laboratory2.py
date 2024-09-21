@@ -16,10 +16,22 @@ if price_total>=100.00:
     print(f"Discounted Price: "+"₱{:.2f}".format(discounted_total))
     print(f"Loyalty Points Earned: "+"{:.2f}".format(loyalty_points))
     
-payment = float(input("Your payment? "))
-
-if payment >= discounted_total:
-    change = payment - discounted_total
-    print(f"Payment Accepted! Your change is "+"₱{:.2f}".format(change))
+    payment = float(input("Your payment? "))
+    
+    if payment >= discounted_total:
+        change = payment - discounted_total
+        print(f"Payment Accepted! Your change is "+"₱{:.2f}".format(change))
+    else:
+        print("Payment is lower than the price. Please try again!")
+    
 else:
-    print("Payment is lower than the price. Please try again!")
+    loyalty_points = price_total / 10
+    print(f"Loyalty Points Earned: "+"{:.2f}".format(loyalty_points))
+    
+    payment = float(input("Your payment? "))
+
+    if payment >= price_total:
+        change = payment - price_total
+        print(f"Payment Accepted! Your change is "+"₱{:.2f}".format(change))
+    else:
+        print("Payment is lower than the price. Please try again!")
